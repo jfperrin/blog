@@ -2,3 +2,7 @@
 <p>Login => <%= @user.login %></p>
 <p>Description => <%= @user.description %></p>
 <p>Avatar => <%= image_tag rails_storage_proxy_path(@user.avatar) %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_user_path(@user) %></li>
+</ul>

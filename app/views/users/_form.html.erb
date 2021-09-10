@@ -1,0 +1,40 @@
+<%= form_with model: @user do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% @user.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :login %><br>
+    <%= form.text_area :login %>
+    <% @user.errors.full_messages_for(:login).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :description %><br>
+    <%= form.rich_text_area :description %>
+    <% @user.errors.full_messages_for(:description).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :avatar %><br>
+    <%= form.file_field :avatar %>
+
+    <%= image_tag rails_storage_proxy_path(@user.avatar) %>
+
+    <% @user.errors.full_messages_for(:avatar).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
