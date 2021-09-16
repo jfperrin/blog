@@ -27,7 +27,7 @@
     <%= form.label :avatar %><br>
     <%= form.file_field :avatar %>
 
-    <%= image_tag rails_storage_proxy_path(@user.avatar) %>
+    <%= image_tag rails_storage_proxy_path(@user.avatar) if @user%>
 
     <% @user.errors.full_messages_for(:avatar).each do |message| %>
       <div><%= message %></div>
